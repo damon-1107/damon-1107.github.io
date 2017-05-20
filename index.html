@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>520,节日快乐</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('./config/media/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="./config/css/default_dev.css" type="text/css" rel="stylesheet">
+	<link href="./config/css/fonts.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="./config/js/jquery.js"></script>
+	<script type="text/javascript" src="./config/js/garden.js"></script>
+    <script type="text/javascript" src="./config/js/functions_dev.js"></script>
+</head>
+
+<body  style="background: url(./config/media/background.png) repeat-y center center fixed;
+							-webkit-background-size: cover; -moz-background-size: cover;
+							-o-background-size: cover; background-size: cover;">
+	<audio src="./config/media/xiangni.mp3" autoplay="" ="autoplay" />	</audio>
+	<div id="mainDiv" style="z-index:0">
+		<div id="content">
+			<div id="code" onclick="hideVideo()">
+				<span class="keyword">闻诗蕊</span><br />
+				<span class="keyword">This code</span><span class="space"/><span class="keyword">is developed for you</span><br />
+				<span class="keyword">To show some romantics To whom you care</span><br />
+				<span class="keyword">in a programmer's way</span><br />
+				<br /><br />
+				<span class="keyword">Images, audio and video</span><span class="space"/><span class="keyword">are from Tiffany.co</span><br />
+				<br /><br />
+				<span class="keyword">Inspired by</span><span class="space"/>
+				<br />
+				<span class="keyword">hackerzhou.me</span><span class="space"/><span class="keyword">and FlowerPower Project</span><br />
+				<br /><br /><br /></br />
+				<span class="placeholder" /><span class="placeholder" /><span class="placeholder" /><span class="placeholder" />
+					<span class="keyword">—— 郭浩东</span>
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages" style="color: #FF34B3">
+						Happiness accumulates with the tick-tock, 
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu" style="color: #FF34B3">
+						And I just keep falling in love with you: <br />again and again<br/><br />
+						<div class="signature" style="color: #FF69B4">5.20  节日快乐</div>
+					</div>
+					<div id="dog">
+						<a onclick="showVideo()">
+							<img id="dogImg" src="./config/media/dog_small.png" onmouseover="dogMouseOver()">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			<br />
+		</div>
+	</div>
+	<div id="videoDiv">
+			<video id="tiffanyVideo" style="width: 100%; preload="auto" loop="loop" controls="controls"">
+					<source src="./config/media/ilove.mp4" type="video/mp4">
+					<source src="./config/media/ilove.mp4" type="video/mp4"
+			</video>
+        </div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.toLocaleString();
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "错误信息";
+			msg.innerHTML = "您的浏览器不支持HTML5，请换用其它浏览器"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation(1);
+			}, 430);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 50);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
